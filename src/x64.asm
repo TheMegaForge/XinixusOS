@@ -563,7 +563,7 @@ acm2:
     ret
 global testPaging
 testPaging:
-    mov rax,0xFFFF00000000
+    mov rax,0xFFFFFFFF00000000
     mov rbx,[rax]
     mov rbx,[rax]
     ret

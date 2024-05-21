@@ -51,7 +51,7 @@ typedef struct _pdref{
 #define CAST_FLAG(dst_type,addr,flag) (dst_type)((uint64_t)addr)|flag
 #define SELF_DISPOSE(end_type,var,mask) var = (end_type)((uint64_t)var&mask)
 SETUP extern uint64_t* acm2(uint64_t* pml4,uint16_t pdpt);
-SETUP uint64_t* maskInc(user_ptr addr,uint64_t __mask__,uint64_t increments);
+SETUP extern uint64_t* maskInc(user_ptr addr,uint64_t __mask__,uint64_t increments);
 /*
   for address 0xFFFF00000000 -> 
   pml4 : 0x975000 (True)
@@ -73,6 +73,8 @@ SETUP void* newVirtualPage(int mode,user_ptr* store,user_ptr physical,PageDeref*
 
         base = maskInc((void*)*base,mask,deref->pdt);
         *base = store[2];                   //stores pdt
+
+
 
         base = maskInc((void*)*base,mask,deref->offset);
         physical = (user_ptr)((uint64_t)physical|flags);
@@ -102,7 +104,6 @@ SETUP  void* VirtualPage4K(user_ptr* store,user_ptr virtual,user_ptr physical,ui
     store[0] = (void*)((uint64_t)store[0] | flags);
     store[1] = (void*)((uint64_t)store[1] | flags);
     store[2] = (void*)((uint64_t)store[2] | flags);
-    store[3] = (void*)((uint64_t)store[3] | flags);
     /*
     TODO: implement new Page with this information
         pml4[0] -> 0x975000

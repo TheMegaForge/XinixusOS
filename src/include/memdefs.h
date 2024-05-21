@@ -19,6 +19,6 @@
 #define PAGE_0x66A000_STORE_PT        (void*)0x979000
 // alternate addresses to access the addresses
 
-#define PAGE_0x66A000 (void*)0xFFFF00000000
+#define PAGE_0x66A000 (void*)0xFFFFFFFF00000000
 #define PAGE_0x66A000_LEN 0x30A520
 #define PAGE_PROPERTY(addr) PAGE_#addr (void*)#addr
