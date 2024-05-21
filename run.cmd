@@ -1,0 +1,1 @@
+qemu-system-x86_64 -m 1024M -drive format=raw,file=dsk.img,id=disk,if=none -debugcon stdio -no-reboot -cpu max -smp cores=2 -device ahci,id=ahci -device ide-hd,drive=disk,bus=ahci.0 -device virtio-gpu
