@@ -27,7 +27,7 @@ LOAD build/stage1/acpi.o
  .setupi        0x0000000000008400      0x133 build/stage1/setup.o
                 0x0000000000008400                setup
 
-.setup          0x0000000000008533      0xe3b
+.setup          0x0000000000008533      0xe14
  *(.setup)
  .setup         0x0000000000008533        0x6 build/stage1/setup.o
                 0x0000000000008533                getUOSI
@@ -51,132 +51,132 @@ LOAD build/stage1/acpi.o
                 0x0000000000008900                acm2
                 0x0000000000008923                testPaging
                 0x0000000000008934                display
- .setup         0x000000000000896d      0x329 build/stage1/memory.o
+ .setup         0x000000000000896d      0x330 build/stage1/memory.o
                 0x000000000000896d                init_memInfo
                 0x00000000000089f4                unfoldMapped
                 0x0000000000008a15                Page2Mb
                 0x0000000000008af8                newVirtualPage
-                0x0000000000008b6a                unfoldVirtual
-                0x0000000000008bb5                VirtualPage4K
- .setup         0x0000000000008c96       0x26 build/stage1/HAL.o
-                0x0000000000008c96                HAL_init
- .setup         0x0000000000008cbc      0x184 build/stage1/idt.o
-                0x0000000000008cbc                IDT_makeEntry
-                0x0000000000008cf6                IDT_load
- .setup         0x0000000000008e40       0x66 build/stage1/idt_asm.o
-                0x0000000000008e40                division_error
-                0x0000000000008e42                overflow_error
-                0x0000000000008e44                opcode_error
-                0x0000000000008e46                general_error
-                0x0000000000008e48                page_error
-                0x0000000000008e4b                sysexc_handler
-                0x0000000000008e75                sysfrmt_handler
-                0x0000000000008e9f                int_pc
- .setup         0x0000000000008ea6        0xc build/stage1/idt_impl.o
-                0x0000000000008ea6                c_sysexc
-                0x0000000000008eac                c_sysfrmt
- .setup         0x0000000000008eb2      0x357 build/stage1/pixelation.o
-                0x0000000000008eb2                setVBEScalar
-                0x0000000000008eba                getVBEHeight
-                0x0000000000008ec1                getVBEWidth
-                0x0000000000008ec8                init_pixalation
-                0x0000000000008f42                getFramebuffer
-                0x0000000000008f4a                put_pixel
-                0x0000000000008f6a                clsVBE
-                0x0000000000008fb0                vbeDrawLine
-                0x0000000000009006                vbeDrawRect
-                0x0000000000009053                vbeDrawHorizontalLine
-                0x00000000000090a9                vbeInitBlockyProgressBar
-                0x000000000000919e                vbeBlockyBarProgressBarAdvance
- .setup         0x0000000000009209       0xdc build/stage1/sysInit.o
-                0x0000000000009209                sysInit
- .setup         0x00000000000092e5       0x2a build/stage1/string.o
-                0x00000000000092e5                strncmp
- .setup         0x000000000000930f       0x5f build/stage1/acpi.o
-                0x000000000000930f                init_rsdp
+                0x0000000000008b74                unfoldVirtual
+                0x0000000000008bc0                VirtualPage4K
+ .setup         0x0000000000008c9d       0x26 build/stage1/HAL.o
+                0x0000000000008c9d                HAL_init
+ .setup         0x0000000000008cc3      0x184 build/stage1/idt.o
+                0x0000000000008cc3                IDT_makeEntry
+                0x0000000000008cfd                IDT_load
+ .setup         0x0000000000008e47       0x66 build/stage1/idt_asm.o
+                0x0000000000008e47                division_error
+                0x0000000000008e49                overflow_error
+                0x0000000000008e4b                opcode_error
+                0x0000000000008e4d                general_error
+                0x0000000000008e4f                page_error
+                0x0000000000008e52                sysexc_handler
+                0x0000000000008e7c                sysfrmt_handler
+                0x0000000000008ea6                int_pc
+ .setup         0x0000000000008ead        0xc build/stage1/idt_impl.o
+                0x0000000000008ead                c_sysexc
+                0x0000000000008eb3                c_sysfrmt
+ .setup         0x0000000000008eb9      0x357 build/stage1/pixelation.o
+                0x0000000000008eb9                setVBEScalar
+                0x0000000000008ec1                getVBEHeight
+                0x0000000000008ec8                getVBEWidth
+                0x0000000000008ecf                init_pixalation
+                0x0000000000008f49                getFramebuffer
+                0x0000000000008f51                put_pixel
+                0x0000000000008f71                clsVBE
+                0x0000000000008fb7                vbeDrawLine
+                0x000000000000900d                vbeDrawRect
+                0x000000000000905a                vbeDrawHorizontalLine
+                0x00000000000090b0                vbeInitBlockyProgressBar
+                0x00000000000091a5                vbeBlockyBarProgressBarAdvance
+ .setup         0x0000000000009210       0xae build/stage1/sysInit.o
+                0x0000000000009210                sysInit
+ .setup         0x00000000000092be       0x2a build/stage1/string.o
+                0x00000000000092be                strncmp
+ .setup         0x00000000000092e8       0x5f build/stage1/acpi.o
+                0x00000000000092e8                init_rsdp
 
-.setupd         0x0000000000009380      0x218
+.setupd         0x0000000000009360      0x218
  *(.setupd)
- .setupd        0x0000000000009380      0x1d0 build/stage1/setup.o
-                0x0000000000009380                sysDesc
- .setupd        0x0000000000009550       0x10 build/stage1/memory.o
-                0x0000000000009550                krnlController
-                0x0000000000009558                page_pdpt
- .setupd        0x0000000000009560        0xa build/stage1/idt.o
- *fill*         0x000000000000956a        0x6 
- .setupd        0x0000000000009570       0x20 build/stage1/pixelation.o
-                0x0000000000009570                vbeScaler
-                0x0000000000009571                pitch
-                0x0000000000009574                height
-                0x0000000000009578                width
-                0x000000000000957c                charWidth
-                0x000000000000957d                charHeight
-                0x0000000000009580                ppaddr
-                0x0000000000009588                framebuffer
- .setupd        0x0000000000009590        0x8 build/stage1/acpi.o
-                0x0000000000009590                tables
+ .setupd        0x0000000000009360      0x1d0 build/stage1/setup.o
+                0x0000000000009360                sysDesc
+ .setupd        0x0000000000009530       0x10 build/stage1/memory.o
+                0x0000000000009530                krnlController
+                0x0000000000009538                page_pdpt
+ .setupd        0x0000000000009540        0xa build/stage1/idt.o
+ *fill*         0x000000000000954a        0x6 
+ .setupd        0x0000000000009550       0x20 build/stage1/pixelation.o
+                0x0000000000009550                vbeScaler
+                0x0000000000009551                pitch
+                0x0000000000009554                height
+                0x0000000000009558                width
+                0x000000000000955c                charWidth
+                0x000000000000955d                charHeight
+                0x0000000000009560                ppaddr
+                0x0000000000009568                framebuffer
+ .setupd        0x0000000000009570        0x8 build/stage1/acpi.o
+                0x0000000000009570                tables
 
-.setupc         0x0000000000009598        0x4
+.setupc         0x0000000000009578        0x4
  *(.setupc)
- .setupc        0x0000000000009598        0x4 build/stage1/idt.o
-                0x0000000000009598                sys_exceptions
-                0x000000000000959a                sys_formats
+ .setupc        0x0000000000009578        0x4 build/stage1/idt.o
+                0x0000000000009578                sys_exceptions
+                0x000000000000957a                sys_formats
 
-.eh_frame       0x00000000000095a0      0x4d0
- .eh_frame      0x00000000000095a0       0x50 build/stage1/setup.o
- .eh_frame      0x00000000000095f0       0xe8 build/stage1/memory.o
- .eh_frame      0x00000000000096d8       0x30 build/stage1/stdio.o
- .eh_frame      0x0000000000009708       0x38 build/stage1/HAL.o
- .eh_frame      0x0000000000009740       0x70 build/stage1/idt.o
- .eh_frame      0x00000000000097b0       0x40 build/stage1/idt_impl.o
- .eh_frame      0x00000000000097f0      0x1c8 build/stage1/pixelation.o
- .eh_frame      0x00000000000099b8       0x48 build/stage1/sysInit.o
- .eh_frame      0x0000000000009a00       0x30 build/stage1/string.o
- .eh_frame      0x0000000000009a30       0x40 build/stage1/acpi.o
+.eh_frame       0x0000000000009580      0x4c8
+ .eh_frame      0x0000000000009580       0x50 build/stage1/setup.o
+ .eh_frame      0x00000000000095d0       0xe8 build/stage1/memory.o
+ .eh_frame      0x00000000000096b8       0x30 build/stage1/stdio.o
+ .eh_frame      0x00000000000096e8       0x38 build/stage1/HAL.o
+ .eh_frame      0x0000000000009720       0x70 build/stage1/idt.o
+ .eh_frame      0x0000000000009790       0x40 build/stage1/idt_impl.o
+ .eh_frame      0x00000000000097d0      0x1c8 build/stage1/pixelation.o
+ .eh_frame      0x0000000000009998       0x40 build/stage1/sysInit.o
+ .eh_frame      0x00000000000099d8       0x30 build/stage1/string.o
+ .eh_frame      0x0000000000009a08       0x40 build/stage1/acpi.o
 
 .setupu
  *(.setupu)
 
-.text           0x0000000000009a70        0x1
+.text           0x0000000000009a50        0x1
  *(.text)
- .text          0x0000000000009a70        0x0 build/stage1/setup.o
- .text          0x0000000000009a70        0x0 build/stage1/x64.o
- .text          0x0000000000009a70        0x0 build/stage1/memory.o
- .text          0x0000000000009a70        0x1 build/stage1/stdio.o
-                0x0000000000009a70                puts
- .text          0x0000000000009a71        0x0 build/stage1/HAL.o
- .text          0x0000000000009a71        0x0 build/stage1/idt.o
- .text          0x0000000000009a71        0x0 build/stage1/idt_impl.o
- .text          0x0000000000009a71        0x0 build/stage1/pixelation.o
- .text          0x0000000000009a71        0x0 build/stage1/sysInit.o
- .text          0x0000000000009a71        0x0 build/stage1/string.o
- .text          0x0000000000009a71        0x0 build/stage1/acpi.o
+ .text          0x0000000000009a50        0x0 build/stage1/setup.o
+ .text          0x0000000000009a50        0x0 build/stage1/x64.o
+ .text          0x0000000000009a50        0x0 build/stage1/memory.o
+ .text          0x0000000000009a50        0x1 build/stage1/stdio.o
+                0x0000000000009a50                puts
+ .text          0x0000000000009a51        0x0 build/stage1/HAL.o
+ .text          0x0000000000009a51        0x0 build/stage1/idt.o
+ .text          0x0000000000009a51        0x0 build/stage1/idt_impl.o
+ .text          0x0000000000009a51        0x0 build/stage1/pixelation.o
+ .text          0x0000000000009a51        0x0 build/stage1/sysInit.o
+ .text          0x0000000000009a51        0x0 build/stage1/string.o
+ .text          0x0000000000009a51        0x0 build/stage1/acpi.o
 
-.data           0x0000000000009a71        0x0
+.data           0x0000000000009a51        0x0
  *(.data)
- .data          0x0000000000009a71        0x0 build/stage1/setup.o
- .data          0x0000000000009a71        0x0 build/stage1/memory.o
- .data          0x0000000000009a71        0x0 build/stage1/stdio.o
- .data          0x0000000000009a71        0x0 build/stage1/HAL.o
- .data          0x0000000000009a71        0x0 build/stage1/idt.o
- .data          0x0000000000009a71        0x0 build/stage1/idt_impl.o
- .data          0x0000000000009a71        0x0 build/stage1/pixelation.o
- .data          0x0000000000009a71        0x0 build/stage1/sysInit.o
- .data          0x0000000000009a71        0x0 build/stage1/string.o
- .data          0x0000000000009a71        0x0 build/stage1/acpi.o
+ .data          0x0000000000009a51        0x0 build/stage1/setup.o
+ .data          0x0000000000009a51        0x0 build/stage1/memory.o
+ .data          0x0000000000009a51        0x0 build/stage1/stdio.o
+ .data          0x0000000000009a51        0x0 build/stage1/HAL.o
+ .data          0x0000000000009a51        0x0 build/stage1/idt.o
+ .data          0x0000000000009a51        0x0 build/stage1/idt_impl.o
+ .data          0x0000000000009a51        0x0 build/stage1/pixelation.o
+ .data          0x0000000000009a51        0x0 build/stage1/sysInit.o
+ .data          0x0000000000009a51        0x0 build/stage1/string.o
+ .data          0x0000000000009a51        0x0 build/stage1/acpi.o
 
-.bss            0x0000000000009a71        0x0
+.bss            0x0000000000009a51        0x0
  *(.bss)
- .bss           0x0000000000009a71        0x0 build/stage1/setup.o
- .bss           0x0000000000009a71        0x0 build/stage1/memory.o
- .bss           0x0000000000009a71        0x0 build/stage1/stdio.o
- .bss           0x0000000000009a71        0x0 build/stage1/HAL.o
- .bss           0x0000000000009a71        0x0 build/stage1/idt.o
- .bss           0x0000000000009a71        0x0 build/stage1/idt_impl.o
- .bss           0x0000000000009a71        0x0 build/stage1/pixelation.o
- .bss           0x0000000000009a71        0x0 build/stage1/sysInit.o
- .bss           0x0000000000009a71        0x0 build/stage1/string.o
- .bss           0x0000000000009a71        0x0 build/stage1/acpi.o
+ .bss           0x0000000000009a51        0x0 build/stage1/setup.o
+ .bss           0x0000000000009a51        0x0 build/stage1/memory.o
+ .bss           0x0000000000009a51        0x0 build/stage1/stdio.o
+ .bss           0x0000000000009a51        0x0 build/stage1/HAL.o
+ .bss           0x0000000000009a51        0x0 build/stage1/idt.o
+ .bss           0x0000000000009a51        0x0 build/stage1/idt_impl.o
+ .bss           0x0000000000009a51        0x0 build/stage1/pixelation.o
+ .bss           0x0000000000009a51        0x0 build/stage1/sysInit.o
+ .bss           0x0000000000009a51        0x0 build/stage1/string.o
+ .bss           0x0000000000009a51        0x0 build/stage1/acpi.o
 OUTPUT(build/stage1/src.bin binary)
 
 .comment        0x0000000000000000       0xbe
